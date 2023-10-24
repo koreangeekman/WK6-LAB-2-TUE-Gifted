@@ -1,11 +1,12 @@
 <template>
   <div class="giftForm">
-    <form v-on:submit="createGift()">
+    <form @submit.prevent="createGift()">
       <label for="tag">Tagline</label>
-      <input v-bind="newGiftObj.tag" class="form-control" type="text" id="tag">
+      <input v-model="newGiftObj.tag" class="form-control" type="text" id="tag" placeholder="Add a tagline..">
       <label for="tag">Image Url</label>
-      <input v-bind="newGiftObj.url" class="form-control" type="url" id="url">
-      <button type="submit">Add Gift <i class="text-success mdi mdi-gift-outline"></i></button>
+      <input v-model="newGiftObj.url" class="form-control" type="url" id="url" placeholder="Provide an image url..">
+      <button type="submit" class="btn btn-success px-3 my-3">Add Gift <i
+          class="text-success mdi mdi-gift-outline"></i></button>
     </form>
   </div>
 </template>
@@ -16,13 +17,15 @@ import { ref } from "vue";
 import { giftService } from "../services/GiftService";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
+import { AppState } from "../AppState";
 
 
 export default {
   setup() {
     const newGiftObj = ref({
-      tag: 'Add a tagline..',
-      url: 'Provide an image..'
+      tag: '',
+      url: '',
+      creatorId: AppState.account.id
     })
 
     return {
@@ -30,8 +33,8 @@ export default {
 
       async createGift() {
         try {
-          const newGift = await giftService.createGift(newGiftObj)
-          logger.log(newGift)
+          const newGift = await giftService.createGift(newGiftObj.value)
+          logger.log('New Gift: ', newGift)
         } catch (error) {
           logger.error(error)
           Pop.error(error)

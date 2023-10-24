@@ -36,7 +36,7 @@ export class Gift {
   constructor(data) {
     this.id = data.id
     this.tag = data.tag
-    this.url = data.url
+    this.url = data.url || "https://images.unsplash.com/photo-1592903297149-37fb25202dfa?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdpZnQlMjBnYW1ibGV8ZW58MHx8MHx8fDA%3D"
     this.opened = data.opened || false
     this.creatorId = data.creatorId
   }
