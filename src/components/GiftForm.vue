@@ -4,7 +4,7 @@
       <label for="tag">Tagline</label>
       <input v-bind="newGiftObj.tag" class="form-control" type="text" id="tag">
       <label for="tag">Image Url</label>
-      <input v-bind="newGiftObj.imgUrl" class="form-control" type="url" id="imgUrl">
+      <input v-bind="newGiftObj.url" class="form-control" type="url" id="url">
       <button type="submit">Add Gift <i class="text-success mdi mdi-gift-outline"></i></button>
     </form>
   </div>
@@ -22,7 +22,7 @@ export default {
   setup() {
     const newGiftObj = ref({
       tag: 'Add a tagline..',
-      imgUrl: 'Provide an image..'
+      url: 'Provide an image..'
     })
 
     return {
