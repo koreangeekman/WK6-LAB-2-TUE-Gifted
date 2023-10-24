@@ -1,12 +1,13 @@
 <template>
   <div class="container-fluid">
     <section class="row justify-content-center giftList">
-      <div class="col-6">
-        <GiftForm />
-        <hr>
-      </div>
+      <GiftForm />
+      <hr>
     </section>
     <section class="row p-3 giftList">
+      <!-- <div class="col-12 d-flex justify-content-between p-3">
+        <Pagination />
+      </div> -->
 
       <div v-for="gift in gifts" :key="gift.id" class="col-12 col-md-4 p-3">
         <GiftCard :gift="gift" /> ..
@@ -24,6 +25,7 @@ import { logger } from "../utils/Logger";
 import { giftService } from "../services/GiftService";
 import GiftCard from "../components/GiftCard.vue";
 import GiftForm from "../components/GiftForm.vue";
+// import Pagination from "../components/Pagination.vue";
 
 export default {
   setup() {

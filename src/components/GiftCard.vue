@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow" @click="gift.opened ? '' : openGift(gift.id)">
+  <div class="card shadow" @click="gift.opened ? '' : openGift(gift.id)" :type="gift.opened ? '' : 'button'">
     <img :src="gift.url" class="img-fluid rounded-top" :alt="gift.tag">
     <span v-if="gift.opened" class="d-flex justify-content-between p-3">
       <h5>{{ gift.tag }}</h5>

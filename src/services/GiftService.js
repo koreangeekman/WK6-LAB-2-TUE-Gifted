@@ -7,9 +7,20 @@ class GiftService {
 
   async getGifts() {
     const res = await api.get('api/gifts')
-    logger.log('api called, returning to controller', res.data)
     AppState.gifts = res.data.map(gift => new Gift(gift))
   }
+
+  // async getGiftsByPage(pageNum) {
+  //   if (pageNum <= 0) {
+  //     logger.error('invalid page number request')
+  //   }
+  //   AppState.currentPage = pageNum;
+  //   const res = await api.get(`api/gifts?page=${pageNum}`)
+  //   AppState.gifts = res.data.map(gift => new Gift(gift))
+  //   // logger.log('by page:', pageNum, 'at', `api/gifts?page=${pageNum}`, 'w/ returned array', AppState.gifts)
+  // }
+
+  // vv AUTHORIZATION REQUIRED BELOW vv
 
   async openGift(giftId) {
     const toBeOpenedIndex = AppState.gifts.findIndex(gift => gift.id == giftId);

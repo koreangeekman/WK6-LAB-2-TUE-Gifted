@@ -1,11 +1,13 @@
 <template>
-  <div class="giftForm">
-    <form @submit.prevent="createGift()">
-      <label for="tag">Tagline</label>
-      <input v-model="newGiftObj.tag" class="form-control" type="text" id="tag" placeholder="Add a tagline..">
-      <label for="tag">Image Url</label>
-      <input v-model="newGiftObj.url" class="form-control" type="url" id="url" placeholder="Provide an image url..">
-      <button type="submit" class="btn btn-success px-3 my-3">Add Gift <i
+  <div class="col-12 col-md-6 d-flex justify-content-center giftForm">
+    <form @submit.prevent="createGift()" class="d-flex ">
+      <span class="text-white mt-3">
+        <label for="tag">Tagline</label>
+        <input v-model="newGiftObj.tag" class="form-control mb-3" type="text" id="tag" placeholder="Add a tagline..">
+        <label for="tag">Image Url</label>
+        <input v-model="newGiftObj.url" class="form-control" type="url" id="url" placeholder="Provide an image url..">
+      </span>
+      <button type="submit" class="btn btn-success px-4 py-5 ms-4 mt-4">Add Gift <i
           class="text-success mdi mdi-gift-outline"></i></button>
     </form>
   </div>
