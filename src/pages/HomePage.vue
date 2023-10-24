@@ -9,7 +9,7 @@
         <Pagination />
       </div> -->
 
-      <div v-for="gift in gifts" :key="gift.id" class="col-12 col-md-4 p-3">
+      <div v-for="gift in gifts" :key="gift.id" class="col-12 col-sm-6 col-lg-4 col-xxl-3 p-3">
         <GiftCard :gift="gift" /> ..
       </div>
 
